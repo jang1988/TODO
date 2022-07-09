@@ -5,13 +5,26 @@ const taskInput = document.querySelector('#taskInput')
 
 const tasksList = document.querySelector('#tasksList');
 
-form.addEventListener('submit', function (event) {
+const emptyList = document.querySelector('#emptyList');
 
+// Добавление задачи
+form.addEventListener('submit', addTask);
+
+// Удаление задачи
+tasksList.addEventListener('click', deleteTask);
+
+
+
+
+
+
+function addTask(event) {
+  
   // отменяем отправку формы
   event.preventDefault();
   
   // Достаем текст из поля ввода
-  const taskText = taskInput.value
+  const taskText = taskInput.value;
 
   // Формируем разметку для новой  задачи
   const taskHTML = 
@@ -31,6 +44,18 @@ form.addEventListener('submit', function (event) {
   tasksList.insertAdjacentHTML('beforeend', taskHTML);
 
   // Очищаям поле ввода и возвращаем на него фокус
-  taskInput.value = ""
+  taskInput.value = "";
+  taskInput.focus();
 
-})
+  // Если в списке более двух элементов, скрываем его
+  if(tasksList.children.length > 1) {
+    emptyList.classList.add('none');
+  }
+
+} 
+
+function deleteTask(event) {
+
+  
+
+}

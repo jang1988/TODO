@@ -3,11 +3,19 @@ html, body {
 }
 
 body {
-  background-color: #E4E5E7;
+  background-color: #5a5a5a;
+  color: #e0e5ea;
   padding-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.card,
+.list-group-item {
+  background-color: #404040 !important;
+}
+.border-img {
+  border-radius: 50%;
 }
 .display {
   text-align: center;
@@ -32,9 +40,10 @@ body {
   text-decoration: line-through;
   color: #CDCDCD;
 }
-.task-item__buttons {
+.task-item__buttons { 
   display: flex;
-  column-gap: 5px;
+  gap: 5px;
+  
 }
 .notify-holder {
   height: 60px;
@@ -87,3 +96,4 @@ body {
 .float-right {
   float: right;
 }
+
