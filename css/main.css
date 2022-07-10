@@ -39,6 +39,7 @@ body {
 .task-title--done {
   text-decoration: line-through;
   color: #CDCDCD;
+  opacity: 0.5;
 }
 .task-item__buttons { 
   display: flex;
@@ -73,7 +74,7 @@ body {
     border: 0;
     border-radius: 4px;
     transition: opacity 0.2s ease-in;
-    opacity: 0.5;
+    opacity: 1;
 
     display: flex;
     justify-content: center;
