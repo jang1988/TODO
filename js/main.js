@@ -2,9 +2,7 @@
 const form = document.querySelector('#form');
 
 const taskInput = document.querySelector('#taskInput')
-
 const tasksList = document.querySelector('#tasksList');
-
 const emptyList = document.querySelector('#emptyList');
 
 // Добавление задачи
