@@ -8,6 +8,11 @@ form.addEventListener("submit", addTask);
 tasksList.addEventListener("click", deleteTask);
 tasksList.addEventListener("click", doneTask);
 
+// возврощаеm taskHtml
+if (localStorage.getItem('taskHtml')) {
+  tasksList.innerHTML = localStorage.getItem('taskHtml');
+}
+
 function addTask(event) {
   // отменяем отправку формы
   event.preventDefault();
@@ -39,6 +44,9 @@ function addTask(event) {
   if (tasksList.children.length > 1) {
     emptyList.classList.add("none");
   }
+
+  saveHTMLtoLS();
+
 }
 function deleteTask(event) {
   // Проверяем что клик был HE по кнопке "Удалить задачу"
@@ -51,10 +59,21 @@ function deleteTask(event) {
       emptyList.classList.remove("none");
     }
   }
+
+  saveHTMLtoLS();
+
 }
 function doneTask(event) {
   if (event.target.dataset.action !== "done") return
   const parentNode = event.target.closest(".list-group-item");
   const taskTitle = parentNode.querySelector(".task-title");
   taskTitle.classList.toggle("task-title--done");
+  saveHTMLtoLS();
+}
+
+// сохранение на локал-хост (в браузере)
+function saveHTMLtoLS() {
+
+  localStorage.setItem('taskHtml', tasksList.innerHTML);
+
 }
