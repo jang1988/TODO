@@ -8,10 +8,6 @@ form.addEventListener("submit", addTask);
 tasksList.addEventListener("click", deleteTask);
 tasksList.addEventListener("click", doneTask);
 
-// возврощаеm taskHtml
-if (localStorage.getItem('taskHtml')) {
-  tasksList.innerHTML = localStorage.getItem('taskHtml');
-}
 
 function addTask(event) {
   // отменяем отправку формы
