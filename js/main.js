@@ -9,8 +9,8 @@ tasksList.addEventListener("click", deleteTask);
 tasksList.addEventListener("click", doneTask);
 
 // возврощаеm taskHtml
-if (localStorage.getItem('taskHTML')) {
-  tasksList.innerHTML = localStorage.getItem('taskHTML');
+if (localStorage.getItem("taskHTML")) {
+  tasksList.innerHTML = localStorage.getItem("taskHTML");
 }
 
 function addTask(event) {
@@ -46,7 +46,6 @@ function addTask(event) {
   }
 
   saveHTMLtoLS();
-
 }
 function deleteTask(event) {
   // Проверяем что клик был HE по кнопке "Удалить задачу"
@@ -61,10 +60,10 @@ function deleteTask(event) {
   }
 
   saveHTMLtoLS();
-
 }
+
 function doneTask(event) {
-  if (event.target.dataset.action !== "done") return
+  if (event.target.dataset.action !== "done") return;
   const parentNode = event.target.closest(".list-group-item");
   const taskTitle = parentNode.querySelector(".task-title");
   taskTitle.classList.toggle("task-title--done");
@@ -73,7 +72,5 @@ function doneTask(event) {
 
 // сохранение на локал-хост (в браузере)
 function saveHTMLtoLS() {
-
-  localStorage.setItem('taskHTML', tasksList.innerHTML);
-
+  localStorage.setItem("taskHTML", tasksList.innerHTML);
 }
