@@ -9,8 +9,8 @@ tasksList.addEventListener("click", deleteTask);
 tasksList.addEventListener("click", doneTask);
 
 // возврощаеm taskHtml
-if (localStorage.getItem('taskHtml')) {
-  tasksList.innerHTML = localStorage.getItem('taskHtml');
+if (localStorage.getItem('taskHTML')) {
+  tasksList.innerHTML = localStorage.getItem('taskHTML');
 }
 
 function addTask(event) {
@@ -74,6 +74,6 @@ function doneTask(event) {
 // сохранение на локал-хост (в браузере)
 function saveHTMLtoLS() {
 
-  localStorage.setItem('taskHtml', tasksList.innerHTML);
+  localStorage.setItem('taskHTML', tasksList.innerHTML);
 
 }
