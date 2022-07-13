@@ -8,7 +8,7 @@ form.addEventListener("submit", addTask);
 tasksList.addEventListener("click", deleteTask);
 tasksList.addEventListener("click", doneTask);
 
-let task = [];
+let tasks = [];
 
 
 function addTask(event) {
@@ -26,7 +26,7 @@ function addTask(event) {
   };
 
   // Добавляем задачу в массив с задачами
-  task.push(newTask);
+  tasks.push(newTask);
 
   const cssClass = newTask.done ? "task-title task-title--done" : "task-title";
 
@@ -61,6 +61,29 @@ function deleteTask(event) {
     return;
   } else {
     const parentNode = event.target.closest("li");
+
+    // Определяем ID задачи
+    const id = Number(parentNode.id);
+
+
+    // // Находим индекс задачи в масиве
+    // const index = tasks.findIndex( (task) => task.id === id);
+
+    // // Удаляем задачу из масива
+    // tasks.splice(index, 1);
+
+
+    tasks = tasks.filter(function (task) {
+      if (task.id === id) {
+        return false
+      } else {
+        return true
+      }
+    })
+
+    console.log(tasks)
+
+    // Удаляем задачу из разметки
     parentNode.remove();
     if (tasksList.children.length == 1) {
       emptyList.classList.remove("none");
